@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 pipenv lock --requirements > requirements.txt
-docker build -t hackathon:dev -f Dockerfile.dev .
+git add -f .secrets
+git add -A
+eb deploy --profile fc-8th-eb --staged
+git reset HEAD requirements.txt .secrets
 rm -rf requirements.txt
