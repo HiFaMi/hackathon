@@ -10,5 +10,6 @@ class User(AbstractUser):
         ('O', 'Owner')
     )
 
+    email = models.EmailField(blank=True)
     authority = models.CharField(max_length=1, choices=AUTHORITY)
     # order = models.ManyToManyField()
