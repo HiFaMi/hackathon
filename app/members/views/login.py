@@ -2,27 +2,9 @@ from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
-<<<<<<< HEAD:app/members/views.py
+
 # Create your views here.
-from .forms import SignupForm, LoginForm
-
-
-def signup(request):
-    if request.method == 'POST':
-        form = SignupForm(request.POST)
-        if form.is_valid:
-            form.save()
-            return redirect('category')
-
-    form = SignupForm()
-    context = {
-        'form': form
-    }
-
-    return render(request, 'members/signup.html', context)
-=======
-from ..forms import LoginForm
->>>>>>> origin/dev:app/members/views/login.py
+from members.forms import LoginForm
 
 __all__ = (
     'user_login',
