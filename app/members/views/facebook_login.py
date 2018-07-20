@@ -17,5 +17,5 @@ def facebook_login(request):
 
     if user is not None:
         login(request, user)
-        return HttpResponse('ssssss')
+        return redirect('index')
     return redirect('members:login')
