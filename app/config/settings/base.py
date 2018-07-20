@@ -28,7 +28,17 @@ SECRET_KEY = secrets["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
+# Facebook
+FACEBOOK_APP_ID = secrets['FACEBOOK_APP_ID']
+FACEBOOK_APP_SECRET_CODE = secrets['FACEBOOK_APP_SECRET_CODE']
+
+# Auth
 AUTH_USER_MODEL = 'members.User'
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'members.backends.FacebookBackend',
+]
+LOGIN_URL = 'members:login'
 
 # Application definition
 
