@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-    {{ user }}
-    {{ foods }}
-    {{ foods.base_ice }}
-    {{ foods.source }}
-    {{ foods.topping }}
-    {{ foods.size }}
+    <section class="contanier">
+    <div class="sign-wrap">
+    <h3>{{ user }}</h3>
+        <div>{{ foods.base_ice }}</div>
+        <div>{{ foods.source }}</div>
+        <div>{{ foods.topping }}</div>
+        <div{{ foods.size }}></div>
+    </div>
+
+    </section>
 
 {% endblock %}

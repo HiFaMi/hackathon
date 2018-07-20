@@ -1,23 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<<<<<<< Updated upstream
-    {{ user }}
-    <form method="POST">
-    {% csrf_token %}
-        {% for field in form %}
-            {{ field.label }}
-            {{ field }}<br>
-        {% endfor %}
-    <button type="submit">로그인</button>
-    </form>
 
-    <a href="https://www.facebook.com/v3.0/dialog/oauth?
-  client_id=529571860791593
-  &redirect_uri=http://localhost:8000/members/facebook-login/
-&scope=email,public_profile">Facebook 로그인</a>
-
-{% endblock %}
-=======
   <section class="contanier">
     <article class="sign-wrap">
 
@@ -52,4 +35,4 @@
 
   </section>
   {% endblock %}
->>>>>>> Stashed changes
+

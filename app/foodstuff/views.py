@@ -1,9 +1,10 @@
+from django.contrib.auth import get_user_model
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-from foodstuff.forms import ChooseSizeForm, ChooseSourceForm, ChooseToppingForm, ChooseBaseiceForm, ChooseFoodStuffForm
-from foodstuff.models import FoodStuff, BaseIce, Source, Topping, Size
-from members.forms import User
+from .forms import ChooseSizeForm, ChooseSourceForm, ChooseToppingForm, ChooseBaseiceForm, ChooseFoodStuffForm
+from .models import FoodStuff, BaseIce, Source, Topping, Size
+User = get_user_model()
 
 
 def choose_category(request):
@@ -22,7 +23,8 @@ def choose_category(request):
 
             user = User.objects.get(username=request.user.username)
             user.order = FoodStuff.objects.last()
-            return HttpResponse('Choice Success')
+            user.save()
+            return redirect('food')
 
     baseice = ChooseBaseiceForm()
     source = ChooseSourceForm()
