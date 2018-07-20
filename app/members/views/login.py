@@ -1,7 +1,8 @@
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect, render
 
+<<<<<<< HEAD:app/members/views.py
 # Create your views here.
 from .forms import SignupForm, LoginForm
 
@@ -19,7 +20,13 @@ def signup(request):
     }
 
     return render(request, 'members/signup.html', context)
+=======
+from ..forms import LoginForm
+>>>>>>> origin/dev:app/members/views/login.py
 
+__all__ = (
+    'user_login',
+)
 
 def user_login(request):
     if request.method == 'POST':

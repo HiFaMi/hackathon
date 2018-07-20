@@ -21,5 +21,8 @@ from django.contrib import admin
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('members/', include('members.urls')),
+<<<<<<< HEAD
     path('foodstuff/', include('foodstuff.urls')),
+=======
+>>>>>>> origin/dev
 ]
