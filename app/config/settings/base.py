@@ -50,7 +50,6 @@ LOGIN_URL = 'members:login'
 INSTALLED_APPS = [
     'members',
     'foodstuff',
-    'django_extensions',
 
     'django.contrib.admin',
     'django.contrib.auth',
