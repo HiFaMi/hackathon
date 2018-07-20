@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+<<<<<<< Updated upstream
     {{ user }}
     <form method="POST">
     {% csrf_token %}
@@ -16,3 +17,39 @@
 &scope=email,public_profile">Facebook 로그인</a>
 
 {% endblock %}
+=======
+  <section class="contanier">
+    <article class="sign-wrap">
+
+      <form class="" action="" method="POST">
+            {% csrf_token %}
+        <h3 class="wrap-title">Sign in</h3>
+
+        <label>{{ form.username.label }}
+          <input type="text" name="username">
+        </label>
+
+        <label>{{ form.password.label }}
+          <input type="password" name="password">
+        </label>
+
+
+        <button type="submit">Sign in</button>
+        <div class="sign-up">
+          <a href="">Sign up</a>
+        </div>
+        <div class="facebook-signin">
+          <a href="https://www.facebook.com/v3.0/dialog/oauth?
+  client_id=529571860791593
+  &redirect_uri=http://localhost:8000/members/facebook-login/
+&scope=email,public_profile">facebook Sign in</a>
+        </div>
+
+      </form>
+
+    </article>
+
+
+  </section>
+  {% endblock %}
+>>>>>>> Stashed changes

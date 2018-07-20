@@ -3,8 +3,9 @@ from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
 
+
 # Create your views here.
-from members.forms import LoginForm
+from ..forms import LoginForm
 
 __all__ = (
     'user_login',
@@ -21,7 +22,7 @@ def user_login(request):
             user = authenticate(username=username, password=password)
             if user:
                 login(request, user)
-                return redirect('category')
+                return redirect('index')
             else:
                 return HttpResponse("Failed login")
     form = LoginForm()
