@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from members.forms import SignupForm, LoginForm
+from .forms import SignupForm, LoginForm
 
 
 def signup(request):
@@ -11,7 +11,7 @@ def signup(request):
         form = SignupForm(request.POST)
         if form.is_valid:
             form.save()
-            return HttpResponse("you're signup successfully")
+            return redirect('category')
 
     form = SignupForm()
     context = {
@@ -32,7 +32,7 @@ def user_login(request):
             user = authenticate(username=username, password=password)
             if user:
                 login(request, user)
-                return redirect('login')
+                return redirect('category')
             else:
                 return HttpResponse("Failed login")
     form = LoginForm()

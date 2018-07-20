@@ -2,18 +2,27 @@ from django.db import models
 
 
 class BaseIce(models.Model):
-    name = models.CharField(max_length=100)
+    ice_name = models.CharField(max_length=100)
     price = models.IntegerField()
+
+    def __str__(self):
+        return self.ice_name
 
 
 class Source(models.Model):
-    name = models.CharField(max_length=100)
+    source_name = models.CharField(max_length=100)
     price = models.IntegerField()
+
+    def __str__(self):
+        return self.source_name
 
 
 class Topping(models.Model):
-    name = models.CharField(max_length=100)
+    topping_name = models.CharField(max_length=100)
     price = models.IntegerField()
+
+    def __str__(self):
+        return self.topping_name
 
 
 class Size(models.Model):
@@ -24,6 +33,9 @@ class Size(models.Model):
     )
 
     food_size = models.CharField(max_length=1, choices=FOOD_SIZE)
+
+    def __str__(self):
+        return self.food_size
 
 
 class FoodStuff(models.Model):
@@ -44,6 +56,8 @@ class FoodStuff(models.Model):
 
     size = models.ForeignKey(
         Size,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True
     )
 

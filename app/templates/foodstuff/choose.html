@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+    {{ user }}
+    <form method="POST">
+    {% csrf_token %}
+        {% for field in baseice %}
+            {{ field.label }}
+            {{ field }}<br>
+        {% endfor %}
+        {% for field in forms %}
+            {{ field.label }}
+            {{ field }}<br>
+        {% endfor %}
+        {% for field in source %}
+            {{ field.label }}
+            {{ field }}<br>
+        {% endfor %}
+        {% for field in toppings %}
+            {{ field.label }}
+            {{ field }}<br>
+        {% endfor %}
+
+        {% for field in sizes %}
+            {{ field.label }}
+            {{ field }}<br>
+        {% endfor %}
+        <button type="submit">선택</button>
+    </form>
+
+{% endblock %}
