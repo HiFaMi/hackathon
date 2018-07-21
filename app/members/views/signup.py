@@ -1,3 +1,4 @@
+from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
@@ -13,6 +14,12 @@ def signup(request):
         form = SignupForm(request.POST)
         if form.is_valid:
             form.save()
+            username = request.POST['username']
+            password = request.POST['password1']
+
+            user = authenticate(username=username, password=password)
+
+            login(request, user)
             return redirect('index')
 
     form = SignupForm()
